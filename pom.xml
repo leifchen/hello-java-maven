@@ -12,6 +12,7 @@
     <modules>
         <module>hello-webservice-springws</module>
         <module>hello-webservice-cxf</module>
+        <module>hello-webservice-dubbo</module>
     </modules>
 
     <name>hello-java-maven</name>
