@@ -1,25 +1,23 @@
 package com.chen.webservice.service;
 
-import com.chen.webservice.entity.User;
-
 import javax.jws.WebMethod;
 import javax.jws.WebParam;
 import javax.jws.WebService;
 
 /**
- * UserService接口
+ * HelloService接口
  * <p>
  * @Author LeifChen
- * @Date 2019-05-16
+ * @Date 2019-05-22
  */
 @WebService(targetNamespace = "http://service.webservice.chen.com")
-public interface UserService {
+public interface HelloService {
 
     /**
-     * 获取用户
-     * @param id
+     * hello
+     * @param msg
      * @return
      */
     @WebMethod
-    User getUser(@WebParam(name = "id") Integer id);
+    String hello(@WebParam(name = "msg") String msg);
 }
