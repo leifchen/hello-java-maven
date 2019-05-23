@@ -13,6 +13,7 @@
         <module>hello-webservice-springws</module>
         <module>hello-webservice-cxf</module>
         <module>hello-webservice-dubbo</module>
+        <module>hello-nio</module>
     </modules>
 
     <name>hello-java-maven</name>
