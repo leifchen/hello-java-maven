@@ -1,4 +1,4 @@
-package com.chen.zookeeper.operator;
+package com.chen.zookeeper.api.operator;
 
 import com.chen.zookeeper.util.AclUtils;
 import lombok.extern.slf4j.Slf4j;
