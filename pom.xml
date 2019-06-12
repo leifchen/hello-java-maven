@@ -15,6 +15,7 @@
         <module>hello-webservice-dubbo</module>
         <module>hello-nio</module>
         <module>hello-zookeeper</module>
+        <module>hello-concurrency</module>
     </modules>
 
     <name>hello-java-maven</name>
