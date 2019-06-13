@@ -1,23 +1,24 @@
-package com.chen.concurrency;
+package com.chen.concurrency.atomic;
 
-import com.chen.concurrency.annotation.NotThreadSafe;
+import com.chen.concurrency.annotation.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
-import org.junit.Test;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.atomic.AtomicBoolean;
 
 /**
- * 并发测试
+ * AtomicBoolean的并发测试
  * <p>
  * @Author LeifChen
- * @Date 2019-06-12
+ * @Date 2019-06-13
  */
 @Slf4j
-@NotThreadSafe
-public class ConcurrencyTest {
+@ThreadSafe
+public class AtomicBooleanTest {
+
     /**
      * 请求总数
      */
@@ -29,14 +30,9 @@ public class ConcurrencyTest {
     /**
      * 计数器
      */
-    private static int count = 0;
+    private static AtomicBoolean isHappened = new AtomicBoolean();
 
-    private void add() {
-        count++;
-    }
-
-    @Test
-    public void test() throws InterruptedException {
+    public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
         final Semaphore semaphore = new Semaphore(THREAD_TOTAL);
         final CountDownLatch countDownLatch = new CountDownLatch(CLIENT_TOTAL);
@@ -44,7 +40,7 @@ public class ConcurrencyTest {
             executorService.execute(() -> {
                 try {
                     semaphore.acquire();
-                    add();
+                    test();
                     semaphore.release();
                 } catch (InterruptedException e) {
                     log.error("exception", e);
@@ -54,6 +50,12 @@ public class ConcurrencyTest {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count: {}", count);
+        log.info("isHappened:{}", isHappened.get());
+    }
+
+    private static void test() {
+        if (isHappened.compareAndSet(false, true)) {
+            log.info("execute");
+        }
     }
 }
