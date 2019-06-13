@@ -50,7 +50,7 @@ public class AtomicIntegerTest {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count:{}", count);
+        log.info("test:{}", count);
     }
 
     private static void add() {

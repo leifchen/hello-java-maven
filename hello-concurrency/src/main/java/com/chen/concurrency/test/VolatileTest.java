@@ -1,4 +1,4 @@
-package com.chen.concurrency.count;
+package com.chen.concurrency.test;
 
 import com.chen.concurrency.annotation.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
@@ -9,14 +9,14 @@ import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
 
 /**
- * 计数器的并发测试
+ * Volatile的并发测试
  * <p>
  * @Author LeifChen
- * @Date 2019-06-12
+ * @Date 2019-06-13
  */
 @Slf4j
 @NotThreadSafe
-public class CountTest {
+public class VolatileTest {
     /**
      * 请求总数
      */
@@ -28,7 +28,7 @@ public class CountTest {
     /**
      * 计数器
      */
-    private static int count = 0;
+    private static volatile int count = 0;
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -48,7 +48,7 @@ public class CountTest {
         }
         countDownLatch.await();
         executorService.shutdown();
-        log.info("count:{}", count);
+        log.info("test:{}", count);
     }
 
     private static void add() {

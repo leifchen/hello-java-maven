@@ -1,24 +1,22 @@
-package com.chen.concurrency.atomic;
+package com.chen.concurrency.test;
 
-import com.chen.concurrency.annotation.ThreadSafe;
+import com.chen.concurrency.annotation.NotThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
 import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
-import java.util.concurrent.atomic.LongAdder;
 
 /**
- * LongAdder的并发测试
+ * 计数器的并发测试
  * <p>
  * @Author LeifChen
- * @Date 2019-06-13
+ * @Date 2019-06-12
  */
 @Slf4j
-@ThreadSafe
-public class LongAdderTest {
-
+@NotThreadSafe
+public class CountTest {
     /**
      * 请求总数
      */
@@ -30,7 +28,7 @@ public class LongAdderTest {
     /**
      * 计数器
      */
-    private static LongAdder count = new LongAdder();
+    private static int count = 0;
 
     public static void main(String[] args) throws InterruptedException {
         ExecutorService executorService = Executors.newCachedThreadPool();
@@ -54,6 +52,6 @@ public class LongAdderTest {
     }
 
     private static void add() {
-        count.increment();
+        count++;
     }
 }
