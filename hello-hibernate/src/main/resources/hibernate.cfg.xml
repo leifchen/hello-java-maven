@@ -1,0 +1,31 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE hibernate-configuration PUBLIC
+        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+
+<hibernate-configuration>
+    <session-factory>
+        <!-- 配置数据库驱动 -->
+        <property name="connection.driver_class">com.mysql.jdbc.Driver</property>
+        <!-- 配置数据库连接URL -->
+        <property name="connection.url">jdbc:mysql://localhost:3306/db_test?useSSL=false</property>
+        <!-- 数据库用户 -->
+        <property name="connection.username">root</property>
+        <!-- 数据库密码 -->
+        <property name="connection.password">123456</property>
+        <!-- 配置数据库方言 -->
+        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+        <!-- 输出运行时生成的SQL语句 -->
+        <property name="show_sql">true</property>
+        <!-- 配置对输出的SQL语句进行格式化 -->
+        <property name="format_sql">true</property>
+
+        <!-- 配置二级缓存实现类 -->
+        <property name="cache.use_second_level_cache">true</property>
+        <property name="cache.provider_class">net.sf.ehcache.hibernate.EhCacheRegionFactory</property>
+        <property name="cache.region.factory_class">org.hibernate.cache.ehcache.SingletonEhCacheRegionFactory</property>
+
+        <!-- 配置映射文件 -->
+        <mapping resource="Employee.hbm.xml"/>
+    </session-factory>
+</hibernate-configuration>
