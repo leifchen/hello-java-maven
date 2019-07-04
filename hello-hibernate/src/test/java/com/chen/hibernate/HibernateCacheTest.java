@@ -12,12 +12,12 @@ import java.util.Iterator;
 import java.util.List;
 
 /**
- * HibernateCache
+ * HibernateCacheTest
  * <p>
  * @Author LeifChen
  * @Date 2019-07-04
  */
-public class HibernateCache {
+public class HibernateCacheTest {
 
     private static SessionFactory factory;
 
