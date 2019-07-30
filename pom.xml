@@ -18,6 +18,7 @@
         <module>hello-concurrency</module>
         <module>hello-mvc</module>
         <module>hello-hibernate</module>
+        <module>hello-ehcache</module>
     </modules>
 
     <name>hello-java-maven</name>
