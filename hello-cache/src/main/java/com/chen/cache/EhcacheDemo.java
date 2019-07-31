@@ -1,4 +1,4 @@
-package com.chen.ehcache;
+package com.chen.cache;
 
 import lombok.extern.slf4j.Slf4j;
 import org.ehcache.Cache;
@@ -18,7 +18,7 @@ import java.net.URL;
  * @Date 2019-07-30
  */
 @Slf4j
-public class CacheDemo {
+public class EhcacheDemo {
 
     /**
      * 基于代码配置
@@ -55,7 +55,7 @@ public class CacheDemo {
      */
     private static void xmlConfig() {
         // 创建 CacheManager 并初始化
-        URL myUrl = CacheDemo.class.getResource("/ehcache.xml");
+        URL myUrl = EhcacheDemo.class.getResource("/ehcache.xml");
         Configuration xmlConfig = new XmlConfiguration(myUrl);
         CacheManager cacheManager = CacheManagerBuilder.newCacheManager(xmlConfig);
         cacheManager.init();

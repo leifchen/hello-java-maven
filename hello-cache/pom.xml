@@ -9,7 +9,7 @@
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
-    <artifactId>hello-ehcache</artifactId>
+    <artifactId>hello-cache</artifactId>
 
     <dependencies>
         <dependency>
