@@ -19,6 +19,7 @@
         <module>hello-mvc</module>
         <module>hello-hibernate</module>
         <module>hello-cache</module>
+        <module>hello-utils</module>
     </modules>
 
     <name>hello-java-maven</name>
