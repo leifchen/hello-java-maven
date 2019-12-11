@@ -129,10 +129,10 @@ public class FtpUtils {
     public void upload(String localPath, String remotePath, String fileName) throws Exception {
         check();
 
-        localPath = localPath.endsWith(File.pathSeparator) == true ? localPath : localPath + "/";
+        localPath = localPath.endsWith(File.pathSeparator) ? localPath : localPath + "/";
         File uploadFile = new File(localPath + fileName);
 
-        if (uploadFile == null || !uploadFile.exists()) {
+        if (!uploadFile.exists()) {
             throw new Exception("待上传文件为空或者文件不存在");
         }
 
@@ -175,7 +175,7 @@ public class FtpUtils {
 
         OutputStream outputStream = null;
         try {
-            localPath = localPath.endsWith(File.pathSeparator) == true ? localPath : localPath + "/";
+            localPath = localPath.endsWith(File.pathSeparator) ? localPath : localPath + "/";
             File localFile = new File(localPath + fileName);
 
             outputStream = new FileOutputStream(localFile);
@@ -213,8 +213,8 @@ public class FtpUtils {
         }
 
         createDir(targetPath);
-        String from = (srcPath.endsWith(File.pathSeparator) == true ? srcPath : srcPath + "/") + srcName;
-        String to = (targetPath.endsWith(File.pathSeparator) == true ? targetPath : targetPath + "/") + targetName;
+        String from = (srcPath.endsWith(File.pathSeparator) ? srcPath : srcPath + "/") + srcName;
+        String to = (targetPath.endsWith(File.pathSeparator) ? targetPath : targetPath + "/") + targetName;
 
         try {
             ftpClient.rename(from, to);
