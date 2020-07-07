@@ -11,7 +11,7 @@
 
     <modules>
         <module>hello-webservice-springws</module>
-        <module>hello-webservice-cxf</module>
+        <module>hello-webservice-cxf-server</module>
         <module>hello-webservice-dubbo</module>
         <module>hello-nio</module>
         <module>hello-zookeeper</module>
