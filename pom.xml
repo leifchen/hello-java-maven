@@ -21,6 +21,7 @@
         <module>hello-cache</module>
         <module>hello-utils</module>
         <module>hello-dataway</module>
+        <module>hello-webservice-cxf-client</module>
     </modules>
 
     <name>hello-java-maven</name>
