@@ -23,6 +23,7 @@
         <module>hello-dataway</module>
         <module>hello-webservice-cxf-client</module>
         <module>hello-jdk8</module>
+        <module>hello-hadoop</module>
     </modules>
 
     <name>hello-java-maven</name>
