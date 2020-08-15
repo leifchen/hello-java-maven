@@ -90,7 +90,7 @@ public class HDFSApiTest {
     @Test
     public void copyFromLocalFile() throws IOException {
         Path src = new Path("E:/hello.txt");
-        Path dst = new Path("/hdfsapi/test/tmp/");
+        Path dst = new Path("/hdfsapi/test/hello.txt");
         fileSystem.copyFromLocalFile(src, dst);
     }
 
