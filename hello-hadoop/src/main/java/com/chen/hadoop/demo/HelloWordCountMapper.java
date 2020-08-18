@@ -6,7 +6,7 @@ package com.chen.hadoop;
  * @Author LeifChen
  * @Date 2020-08-15
  */
-public class WordCountMapper implements Mapper {
+public class HelloWordCountMapper implements Mapper {
 
     @Override
     public void map(String line, Context context) {

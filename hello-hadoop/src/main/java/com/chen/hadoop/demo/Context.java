@@ -1,4 +1,4 @@
-package com.chen.hadoop;
+package com.chen.hadoop.demo;
 
 import lombok.Getter;
 

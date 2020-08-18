@@ -1,4 +1,4 @@
-package com.chen.hadoop;
+package com.chen.hadoop.demo;
 
 import lombok.extern.slf4j.Slf4j;
 import org.apache.hadoop.conf.Configuration;
@@ -22,7 +22,7 @@ import java.util.Set;
  * @Date 2020-08-15
  */
 @Slf4j
-public class WordCount {
+public class HelloWordCount {
 
     public static final String HADOOP_URI = "hdfs://hadoop100:9000";
 
@@ -35,7 +35,7 @@ public class WordCount {
         Path input = new Path("/hdfsapi/test/hello.txt");
         RemoteIterator<LocatedFileStatus> iterator = fs.listFiles(input, false);
 
-        Mapper mapper = new WordCountMapper();
+        Mapper mapper = new HelloWordCountMapper();
         Context context = new Context();
 
         while (iterator.hasNext()) {
