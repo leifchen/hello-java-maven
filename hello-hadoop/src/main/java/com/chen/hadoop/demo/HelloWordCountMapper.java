@@ -1,4 +1,4 @@
-package com.chen.hadoop;
+package com.chen.hadoop.demo;
 
 /**
  * 自定义词频Mapper实现类
