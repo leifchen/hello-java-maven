@@ -5,12 +5,12 @@ import java.util.concurrent.ExecutionException;
 import java.util.concurrent.FutureTask;
 
 /**
- * 线程
+ * 线程的创建
  * <p>
  * @Author LeifChen
  * @Date 2020-03-04
  */
-public class ThreadTest {
+public class ThreadCreateTest {
 
     public static class MyThread extends Thread {
         @Override
