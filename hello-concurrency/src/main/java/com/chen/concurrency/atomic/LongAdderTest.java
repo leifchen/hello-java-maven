@@ -1,12 +1,9 @@
 package com.chen.concurrency.atomic;
 
-import com.chen.concurrency.annotation.ThreadSafe;
 import lombok.extern.slf4j.Slf4j;
 
-import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
-import java.util.concurrent.Semaphore;
 import java.util.concurrent.atomic.LongAdder;
 
 /**
@@ -16,44 +13,35 @@ import java.util.concurrent.atomic.LongAdder;
  * @Date 2019-06-13
  */
 @Slf4j
-@ThreadSafe
 public class LongAdderTest {
 
-    /**
-     * 请求总数
-     */
-    private static int CLIENT_TOTAL = 5000;
-    /**
-     * 并发执行线程数
-     */
-    private static int THREAD_TOTAL = 200;
-    /**
-     * 计数器
-     */
-    private static LongAdder count = new LongAdder();
-
-    public static void main(String[] args) throws InterruptedException {
-        ExecutorService executorService = Executors.newCachedThreadPool();
-        final Semaphore semaphore = new Semaphore(THREAD_TOTAL);
-        final CountDownLatch countDownLatch = new CountDownLatch(CLIENT_TOTAL);
-        for (int i = 0; i < CLIENT_TOTAL; i++) {
-            executorService.execute(() -> {
-                try {
-                    semaphore.acquire();
-                    add();
-                    semaphore.release();
-                } catch (InterruptedException e) {
-                    log.error("exception", e);
-                }
-                countDownLatch.countDown();
-            });
+    public static void main(String[] args) {
+        LongAdder counter = new LongAdder();
+        ExecutorService service = Executors.newFixedThreadPool(20);
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < 10000; i++) {
+            service.submit(new Task(counter));
         }
-        countDownLatch.await();
-        executorService.shutdown();
-        log.info("test:{}", count);
+        service.shutdown();
+        while (!service.isTerminated()) {
+        }
+        long end = System.currentTimeMillis();
+        log.debug("couter：{}", counter.sum());
+        log.info("LongAdder耗时：{}ms", end - start);
     }
 
-    private static void add() {
-        count.increment();
+    private static class Task implements Runnable {
+        private LongAdder counter;
+
+        public Task(LongAdder counter) {
+            this.counter = counter;
+        }
+
+        @Override
+        public void run() {
+            for (int i = 0; i < 10000; i++) {
+                counter.increment();
+            }
+        }
     }
 }
