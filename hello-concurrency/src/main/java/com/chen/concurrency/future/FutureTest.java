@@ -1,4 +1,4 @@
-package com.chen.concurrency.aqs;
+package com.chen.concurrency.future;
 
 import lombok.extern.slf4j.Slf4j;
 
@@ -31,6 +31,8 @@ public class FutureTest {
         executorService.shutdown();
         log.info("do something in main");
         Thread.sleep(1000);
+        log.info("isCancelled:{}", future.isCancelled());
         log.info("result:{}", future.get());
+        log.info("isDone:{}", future.isDone());
     }
 }

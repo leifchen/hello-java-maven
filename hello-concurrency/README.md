@@ -21,4 +21,16 @@ Java 并发多线程
 
 ## [Atomic包](src/main/java/com/chen/concurrency/atomic)
 
-Atomic包下的类都是基于CAS实现原子性。
+**Atomic** 包下的类都是基于 **CAS** 实现原子性。
+
+## [AQS](src/main/java/com/chen/concurrency/aqs)
+
+**AQS**（AbstractQueuedSynchronizer）基于FIFO等待队列实现，是一个用于构建锁、同步器、协作工具类的工具类。
+
+ReentrantLock、CountDownLatch、Semaphore 内部都有一个内部类 **Sync**，其中 Sync 类继承了 AQS。
+
+## [Future](src/main/java/com/chen/concurrency/future)
+
+**Future** 能获得任务执行的状态，并且可以获取任务的返回值。
+
+**FutureTask** 是一种包装器，可以把 Callable 转化成 Future 和 Runnable，因为它同时实现二者的接口。主要用来获取 Future 和任务结果。
