@@ -25,6 +25,7 @@
         <module>hello-jdk8</module>
         <module>hello-hadoop</module>
         <module>hello-spi</module>
+        <module>hello-hbase</module>
     </modules>
 
     <name>hello-java-maven</name>
