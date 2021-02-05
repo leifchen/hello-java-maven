@@ -19,7 +19,7 @@
     </repositories>
 
     <properties>
-        <hbase.version>1.2.0</hbase.version>
+        <hbase.version>1.2.0-cdh5.15.1</hbase.version>
     </properties>
 
     <dependencies>
