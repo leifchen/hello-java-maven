@@ -26,6 +26,7 @@
         <module>hello-hadoop</module>
         <module>hello-spi</module>
         <module>hello-hbase</module>
+        <module>hello-ignite</module>
     </modules>
 
     <name>hello-java-maven</name>
