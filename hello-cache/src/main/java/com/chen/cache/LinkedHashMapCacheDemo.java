@@ -22,7 +22,7 @@ public class LinkedHashMapCacheDemo {
         // 最大缓存10个元素
         int cacheSize = 10;
 
-        LinkedHashMap cache = new LinkedHashMap<String, String>() {
+        LinkedHashMap<String, String> cache = new LinkedHashMap<String, String>() {
             @Override
             protected boolean removeEldestEntry(Map.Entry<String, String> eldest) {
                 return size() > cacheSize;
